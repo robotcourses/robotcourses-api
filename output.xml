@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-12-05T17:32:21.454107" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="c:\Workspace\robotcourses-api\tests\Login\login.robot">
+<test id="s1-t1" name="Cenário: Realizar Login Com Password Inválido" line="26">
+<kw name="Create ServeRest Session" owner="session">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-05T17:32:21.729158" level="INFO">Creating Session using : alias=serve_rest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=serve_rest</arg>
+<arg>url=https://serverest.dev</arg>
+<arg>disable_warnings=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-05T17:32:21.728160" elapsed="0.003001"/>
+</kw>
+<status status="PASS" start="2025-12-05T17:32:21.728160" elapsed="0.003001"/>
+</kw>
+<kw name="POST Login" owner="post_login">
+<kw name="Contract Post Login" owner="post_login">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-05T17:32:21.732159" level="INFO">${body} = {'email': 'vinicius.trindade@teste.com.br', 'password': '123456789'}</msg>
+<var>${body}</var>
+<arg>email=${login_email}</arg>
+<arg>password=${login_password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-05T17:32:21.732159" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${body}</value>
+<status status="PASS" start="2025-12-05T17:32:21.732159" elapsed="0.001049"/>
+</return>
+<msg time="2025-12-05T17:32:21.733208" level="INFO">${body} = {'email': 'vinicius.trindade@teste.com.br', 'password': '123456789'}</msg>
+<var>${body}</var>
+<arg>${login_email}</arg>
+<arg>${login_password}</arg>
+<status status="PASS" start="2025-12-05T17:32:21.732159" elapsed="0.001049"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-12-05T17:32:22.102381" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '68', 'Content-Type': 'application/json'} 
+ body=b'{"email": "vinicius.trindade@teste.com.br", "password": "123456789"}' 
+ </msg>
+<msg time="2025-12-05T17:32:22.102381" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '2c7227677558e203683df8082236979b;o=1', 'date': 'Fri, 05 Dec 2025 20:30:11 GMT', 'server': 'Google Frontend', 'Content-Length': '48'} 
+ body={
+    "message": "Email e/ou senha inválidos"
+} 
+ </msg>
+<msg time="2025-12-05T17:32:22.103661" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>alias=serve_rest</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${expected_status}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-05T17:32:21.733208" elapsed="0.370453"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-12-05T17:32:22.103661" elapsed="0.000000"/>
+</return>
+<msg time="2025-12-05T17:32:22.103661" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>login_email=${user_email}</arg>
+<arg>login_password=123456789</arg>
+<arg>expected_status=401</arg>
+<status status="PASS" start="2025-12-05T17:32:21.731161" elapsed="0.372500"/>
+</kw>
+<kw name="Assert POST Login" owner="post_login">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>${message}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-05T17:32:22.104659" elapsed="0.000999"/>
+</kw>
+<if>
+<branch type="IF" condition="${response.status_code} == ${200}">
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${response.json()['authorization']}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2025-12-05T17:32:22.106660" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-05T17:32:22.105658" elapsed="0.001002"/>
+</branch>
+<status status="PASS" start="2025-12-05T17:32:22.105658" elapsed="0.001002"/>
+</if>
+<arg>${response}</arg>
+<arg>Email e/ou senha inválidos</arg>
+<status status="PASS" start="2025-12-05T17:32:22.104659" elapsed="0.002001"/>
+</kw>
+<status status="PASS" start="2025-12-05T17:32:21.727160" elapsed="0.379500"/>
+</test>
+<status status="PASS" start="2025-12-05T17:32:21.457108" elapsed="0.650550"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="1" fail="0" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
