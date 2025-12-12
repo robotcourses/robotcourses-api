@@ -1,0 +1,10 @@
+serve_rest:
+  alias: serve_rest
+  dev:
+    url: https://serverest.dev
+  hml:
+    url: https://serverest.hml
+  sdb:
+    url: https://serverest.sdb
+  prd:
+    url: https://serverest.prd
