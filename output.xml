@@ -1,147 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4 (Python 3.11.9 on win32)" generated="2025-12-12T14:00:25.960199" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4 (Python 3.11.9 on win32)" generated="2025-12-19T14:15:51.056545" rpa="false" schemaversion="5">
 <suite id="s1" name="Carrinhos" source="c:\Workspace\robotcourses-api\tests\Carrinhos\carrinhos.robot">
-<test id="s1-t1" name="Cenário: Criar Carrinho Com Mais de Um Item" line="19">
+<test id="s1-t1" name="Cenário: Criar Carrinho Com Mais de Um Item" line="26">
 <kw name="Run Keywords" owner="BuiltIn" type="SETUP">
 <kw name="Create ServeRest Session" owner="session">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-12-12T14:00:26.281340" level="INFO">Creating Session using : alias=serve_rest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-12-19T14:15:51.354371" level="INFO">Creating Session using : alias=serve_rest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=${serve_rest.alias}</arg>
 <arg>url=${serve_rest.${ENVIRONMENT}.url}</arg>
 <arg>disable_warnings=${True}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-12-12T14:00:26.281340" elapsed="0.002084"/>
+<status status="PASS" start="2025-12-19T14:15:51.353866" elapsed="0.002511"/>
 </kw>
-<status status="PASS" start="2025-12-12T14:00:26.281340" elapsed="0.003083"/>
+<status status="PASS" start="2025-12-19T14:15:51.353866" elapsed="0.002511"/>
 </kw>
+<kw name="Execute Login With Usuario Fallback" owner="utils">
 <kw name="POST Login" owner="post_login">
 <kw name="Contract Post Login" owner="contracts">
-<msg time="2025-12-12T14:00:26.284423" level="INFO">${body} = {'email': 'vinicius.trindade@teste.com.br', 'password': '123@teste'}</msg>
+<msg time="2025-12-19T14:15:51.357376" level="INFO">${body} = {'email': 'vinicius.trindade@teste.com.br', 'password': '123@teste'}</msg>
 <var>${body}</var>
 <arg>${login_email}</arg>
 <arg>${login_password}</arg>
-<status status="PASS" start="2025-12-12T14:00:26.284423" elapsed="0.000999"/>
+<status status="PASS" start="2025-12-19T14:15:51.357376" elapsed="0.000000"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-12-12T14:00:26.672841" level="INFO">POST Request : url=https://serverest.dev/login 
+<msg time="2025-12-19T14:15:51.719560" level="INFO">POST Request : url=https://serverest.dev/login 
  path_url=/login 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '68', 'Content-Type': 'application/json'} 
  body=b'{"email": "vinicius.trindade@teste.com.br", "password": "123@teste"}' 
  </msg>
-<msg time="2025-12-12T14:00:26.673836" level="INFO">POST Response : url=https://serverest.dev/login 
+<msg time="2025-12-19T14:15:51.719560" level="INFO">POST Response : url=https://serverest.dev/login 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'ca1222f5700fafdda49856be06a050e6;o=1', 'date': 'Fri, 12 Dec 2025 16:58:09 GMT', 'server': 'Google Frontend', 'Content-Length': '293'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'b87148b75fab039ff069911faa6e0928;o=1', 'date': 'Fri, 19 Dec 2025 17:13:13 GMT', 'server': 'Google Frontend', 'Content-Length': '293'} 
  body={
     "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmljaXVzLnRyaW5kYWRlQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzQHRlc3RlIiwiaWF0IjoxNzY1NTU4Njg5LCJleHAiOjE3NjU1NTkyODl9.OAFXFAnYHz23L6X4HR_olWGdrjDsNp6dn8Ph-gzg_UY"
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmljaXVzLnRyaW5kYWRlQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzQHRlc3RlIiwiaWF0IjoxNzY2MTY0MzkzLCJleHAiOjE3NjYxNjQ5OTN9.YwrQ5y8gpxBDmOb5lfRjdalECG_CmKKf1BwxXmJQ9Gk"
 } 
  </msg>
-<msg time="2025-12-12T14:00:26.673836" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-12-19T14:15:51.719560" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=${serve_rest.alias}</arg>
 <arg>url=/login</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=${expected_status}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-12-12T14:00:26.285422" elapsed="0.388414"/>
+<status status="PASS" start="2025-12-19T14:15:51.357376" elapsed="0.362184"/>
 </kw>
 <if>
 <branch type="IF" condition="${response.status_code} == ${200}">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-12-12T14:00:26.674836" level="INFO">${header} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmljaXVzLnRyaW5kYWRlQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzQHRlc3RlIiwiaWF0IjoxNzY1NTU4Njg5LCJleHAiOjE3NjU1NTkyODl9.OAFX...</msg>
+<msg time="2025-12-19T14:15:51.721560" level="INFO">${header} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmljaXVzLnRyaW5kYWRlQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzQHRlc3RlIiwiaWF0IjoxNzY2MTY0MzkzLCJleHAiOjE3NjYxNjQ5OTN9.YwrQ...</msg>
 <var>${header}</var>
 <arg>Authorization=${response.json()['authorization']}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-12-12T14:00:26.674836" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-19T14:15:51.720561" elapsed="0.000999"/>
 </kw>
 <kw name="Update Session" owner="RequestsLibrary">
 <arg>${serve_rest.alias}</arg>
 <arg>headers=${header}</arg>
 <doc>Updates HTTP Session Headers and Cookies.</doc>
-<status status="PASS" start="2025-12-12T14:00:26.674836" elapsed="0.000999"/>
+<status status="PASS" start="2025-12-19T14:15:51.721560" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-12-12T14:00:26.673836" elapsed="0.001999"/>
+<status status="PASS" start="2025-12-19T14:15:51.720561" elapsed="0.000999"/>
 </branch>
-<status status="PASS" start="2025-12-12T14:00:26.673836" elapsed="0.001999"/>
+<status status="PASS" start="2025-12-19T14:15:51.720561" elapsed="0.000999"/>
 </if>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2025-12-12T14:00:26.675835" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-19T14:15:51.721560" elapsed="0.000000"/>
 </return>
-<status status="PASS" start="2025-12-12T14:00:26.284423" elapsed="0.391412"/>
+<msg time="2025-12-19T14:15:51.721560" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>expected_status=any</arg>
+<status status="PASS" start="2025-12-19T14:15:51.356377" elapsed="0.366182"/>
+</kw>
+<if>
+<branch type="IF" condition="${response.status_code} == ${401}">
+<kw name="POST Usuarios" owner="post_usuarios">
+<status status="NOT RUN" start="2025-12-19T14:15:51.722559" elapsed="0.000000"/>
+</kw>
+<kw name="POST Login" owner="post_login">
+<status status="NOT RUN" start="2025-12-19T14:15:51.722559" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-19T14:15:51.722559" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${response.status_code} != ${401} and ${response.status_code} != ${200}">
+<kw name="Fail" owner="BuiltIn">
+<arg>Erro ao realizar autenticação do usuário</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-12-19T14:15:51.725072" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-19T14:15:51.722559" elapsed="0.002513"/>
+</branch>
+<status status="PASS" start="2025-12-19T14:15:51.722559" elapsed="0.002513"/>
+</if>
+<status status="PASS" start="2025-12-19T14:15:51.356377" elapsed="0.368695"/>
 </kw>
 <arg>Create ServeRest Session</arg>
-<arg>POST Login</arg>
+<arg>Execute Login With Usuario Fallback</arg>
 <doc>Executes all the given keywords in a sequence.</doc>
-<status status="PASS" start="2025-12-12T14:00:26.280340" elapsed="0.395495"/>
+<status status="PASS" start="2025-12-19T14:15:51.352866" elapsed="0.372206"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-12-12T14:00:26.676841" level="INFO">@{id_produto} = [ BeeJh5lz3k6kSIzA | jsabjsfajbksakjb ]</msg>
+<msg time="2025-12-19T14:15:51.726077" level="INFO">@{id_produto} = [ BeeJh5lz3k6kSIzA | 171CULHEIyWR2Hre ]</msg>
 <var>@{id_produto}</var>
 <arg>BeeJh5lz3k6kSIzA</arg>
-<arg>jsabjsfajbksakjb</arg>
+<arg>171CULHEIyWR2Hre</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-12-12T14:00:26.676841" elapsed="0.000996"/>
+<status status="PASS" start="2025-12-19T14:15:51.725072" elapsed="0.001005"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-12-12T14:00:26.677837" level="INFO">@{quantidade} = [ 3 | 5 ]</msg>
+<msg time="2025-12-19T14:15:51.727076" level="INFO">@{quantidade} = [ 3 | 5 ]</msg>
 <var>@{quantidade}</var>
 <arg>3</arg>
 <arg>5</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-12-12T14:00:26.677837" elapsed="0.001000"/>
+<status status="PASS" start="2025-12-19T14:15:51.727076" elapsed="0.000000"/>
 </kw>
 <kw name="POST Carrinhos" owner="post_carrinhos">
 <kw name="Contract Post Carrinhos" owner="contracts">
-<msg time="2025-12-12T14:00:26.678837" level="INFO">${body} = {'produtos': [{'idProduto': 'BeeJh5lz3k6kSIzA', 'quantidade': '3'}, {'idProduto': 'jsabjsfajbksakjb', 'quantidade': '5'}]}</msg>
+<msg time="2025-12-19T14:15:51.728077" level="INFO">${body} = {'produtos': [{'idProduto': 'BeeJh5lz3k6kSIzA', 'quantidade': '3'}, {'idProduto': '171CULHEIyWR2Hre', 'quantidade': '5'}]}</msg>
 <var>${body}</var>
 <arg>id_produto=${id_produto}</arg>
 <arg>quantidade=${quantidade}</arg>
-<status status="PASS" start="2025-12-12T14:00:26.678837" elapsed="0.001001"/>
+<status status="PASS" start="2025-12-19T14:15:51.727076" elapsed="0.001001"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-12-12T14:00:26.842995" level="INFO">POST Request : url=https://serverest.dev/carrinhos 
+<msg time="2025-12-19T14:15:51.971157" level="INFO">POST Request : url=https://serverest.dev/carrinhos 
  path_url=/carrinhos 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmljaXVzLnRyaW5kYWRlQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzQHRlc3RlIiwiaWF0IjoxNzY1NTU4Njg5LCJleHAiOjE3NjU1NTkyODl9.OAFXFAnYHz23L6X4HR_olWGdrjDsNp6dn8Ph-gzg_UY', 'Content-Length': '122', 'Content-Type': 'application/json'} 
- body=b'{"produtos": [{"idProduto": "BeeJh5lz3k6kSIzA", "quantidade": "3"}, {"idProduto": "jsabjsfajbksakjb", "quantidade": "5"}]}' 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmljaXVzLnRyaW5kYWRlQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzQHRlc3RlIiwiaWF0IjoxNzY2MTY0MzkzLCJleHAiOjE3NjYxNjQ5OTN9.YwrQ5y8gpxBDmOb5lfRjdalECG_CmKKf1BwxXmJQ9Gk', 'Content-Length': '122', 'Content-Type': 'application/json'} 
+ body=b'{"produtos": [{"idProduto": "BeeJh5lz3k6kSIzA", "quantidade": "3"}, {"idProduto": "171CULHEIyWR2Hre", "quantidade": "5"}]}' 
  </msg>
-<msg time="2025-12-12T14:00:26.842995" level="INFO">POST Response : url=https://serverest.dev/carrinhos 
- status=400, reason=Bad Request 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'f9e39df4ddc4fc82a49856be06a05955', 'date': 'Fri, 12 Dec 2025 16:58:09 GMT', 'server': 'Google Frontend', 'Content-Length': '61'} 
+<msg time="2025-12-19T14:15:51.972663" level="INFO">POST Response : url=https://serverest.dev/carrinhos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '0468ae86b6cba5a5f069911faa6e0f93', 'date': 'Fri, 19 Dec 2025 17:13:14 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
  body={
-    "message": "Não é permitido ter mais de 1 carrinho"
+    "message": "Cadastro realizado com sucesso",
+    "_id": "yHVxQUXFXSSB85YU"
 } 
  </msg>
-<msg time="2025-12-12T14:00:26.844002" level="FAIL">Url: https://serverest.dev/carrinhos Expected status: 400 != 201</msg>
+<msg time="2025-12-19T14:15:51.972663" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
 <arg>alias=${serve_rest.alias}</arg>
 <arg>url=/carrinhos</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=${expected_status}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="FAIL" start="2025-12-12T14:00:26.679838" elapsed="0.166168">Url: https://serverest.dev/carrinhos Expected status: 400 != 201</status>
+<status status="PASS" start="2025-12-19T14:15:51.728077" elapsed="0.244586"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="NOT RUN" start="2025-12-12T14:00:26.846006" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-19T14:15:51.972663" elapsed="0.000000"/>
 </return>
-<var>${response}</var>
+<msg time="2025-12-19T14:15:51.972663" level="INFO">${resp_post_carrinhos} = &lt;Response [201]&gt;</msg>
+<var>${resp_post_carrinhos}</var>
 <arg>id_produto=${id_produto}</arg>
 <arg>quantidade=${quantidade}</arg>
-<status status="FAIL" start="2025-12-12T14:00:26.678837" elapsed="0.167169">Url: https://serverest.dev/carrinhos Expected status: 400 != 201</status>
+<status status="PASS" start="2025-12-19T14:15:51.727076" elapsed="0.245587"/>
 </kw>
-<status status="FAIL" start="2025-12-12T14:00:26.264830" elapsed="0.582174">Url: https://serverest.dev/carrinhos Expected status: 400 != 201</status>
+<kw name="Assert POST Carrinhos" owner="post_carrinhos">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>${message}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-19T14:15:51.973853" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${response.status_code} == ${201}">
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-12-19T14:15:51.974860" level="INFO">Length is 16.</msg>
+<arg>${response.json()['_id']}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-12-19T14:15:51.974860" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-12-19T14:15:51.973853" elapsed="0.001007"/>
+</branch>
+<status status="PASS" start="2025-12-19T14:15:51.973853" elapsed="0.001007"/>
+</if>
+<arg>${resp_post_carrinhos}</arg>
+<arg>Cadastro realizado com sucesso</arg>
+<status status="PASS" start="2025-12-19T14:15:51.972663" elapsed="0.002197"/>
+</kw>
+<kw name="DELETE Concluir Compra" owner="delete_concluir_carrinho">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-12-19T14:15:52.165083" level="INFO">DELETE Request : url=https://serverest.dev/carrinhos/concluir-compra 
+ path_url=/carrinhos/concluir-compra 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpbmljaXVzLnRyaW5kYWRlQHRlc3RlLmNvbS5iciIsInBhc3N3b3JkIjoiMTIzQHRlc3RlIiwiaWF0IjoxNzY2MTY0MzkzLCJleHAiOjE3NjYxNjQ5OTN9.YwrQ5y8gpxBDmOb5lfRjdalECG_CmKKf1BwxXmJQ9Gk', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-12-19T14:15:52.165083" level="INFO">DELETE Response : url=https://serverest.dev/carrinhos/concluir-compra 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'eb5ecaa454443b95f069911faa6e0a5c', 'date': 'Fri, 19 Dec 2025 17:13:14 GMT', 'server': 'Google Frontend', 'Content-Length': '51'} 
+ body={
+    "message": "Registro excluído com sucesso"
+} 
+ </msg>
+<msg time="2025-12-19T14:15:52.165083" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=${serve_rest.alias}</arg>
+<arg>url=/carrinhos/concluir-compra</arg>
+<arg>expected_status=${expected_status}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-19T14:15:51.975857" elapsed="0.189226"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-12-19T14:15:52.166088" elapsed="0.000000"/>
+</return>
+<msg time="2025-12-19T14:15:52.166088" level="INFO">${resp_del_concluir_compra} = &lt;Response [200]&gt;</msg>
+<var>${resp_del_concluir_compra}</var>
+<status status="PASS" start="2025-12-19T14:15:51.975857" elapsed="0.190231"/>
+</kw>
+<kw name="Assert DELETE Concluir Compra" owner="delete_concluir_carrinho">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>${message}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-12-19T14:15:52.167091" elapsed="0.000998"/>
+</kw>
+<arg>${resp_del_concluir_compra}</arg>
+<arg>Registro excluído com sucesso</arg>
+<status status="PASS" start="2025-12-19T14:15:52.167091" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-12-19T14:15:51.351869" elapsed="0.816220"/>
 </test>
-<status status="FAIL" start="2025-12-12T14:00:25.965727" elapsed="0.881277"/>
+<status status="PASS" start="2025-12-19T14:15:51.059548" elapsed="1.109541"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Carrinhos" id="s1" pass="0" fail="1" skip="0">Carrinhos</stat>
+<stat name="Carrinhos" id="s1" pass="1" fail="0" skip="0">Carrinhos</stat>
 </suite>
 </statistics>
 <errors>

@@ -24,3 +24,13 @@ class contracts:
                 } for product, quantity in zip (id_produto, quantidade)
             ]
         }
+    
+    @keyword('Contract Post Usuarios')
+    def post_usuarios(self, user_name, user_email, user_password, user_administrador):
+        
+        return {
+            "nome": user_name,
+            "email": user_email,
+            "password": user_password,
+            "administrador": user_administrador
+        }

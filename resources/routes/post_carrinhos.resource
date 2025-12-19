@@ -19,3 +19,24 @@ POST Carrinhos
     ...  expected_status=${expected_status}
     
     RETURN    ${response}
+
+Assert POST Carrinhos
+    [Arguments]    ${response}    ${message}
+
+
+    Should Be Equal    ${response.json()['message']}    ${message}
+
+    IF    ${response.status_code} == ${201}
+        Should Not Be Empty    ${response.json()['_id']}
+    END
+
+
+# {
+#   "message": "Cadastro realizado com sucesso",
+#   "_id": "jogfODIlXsqxNFS2"
+# }
+
+
+# {
+#   "message": "Não é permitido possuir produto duplicado | Não é permitido ter mais de 1 carrinho | Produto não encontrado | Produto não possui quantidade suficiente"
+# }
